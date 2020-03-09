@@ -1,4 +1,4 @@
-import * as ObjectUtils from "./object.utils";
+import { ObjectUtils } from "./object.utils";
 
 export class ServerError extends Error {
     status: number;

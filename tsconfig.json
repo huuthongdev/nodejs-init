@@ -1,21 +1,22 @@
 {
   "compilerOptions": {
-    "target": "esnext",
     "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "target": "es6",
+    "noImplicitAny": true,
     "lib": [
       "es2017",
       "dom"
     ],
     "outDir": "dist",
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "*": [
         "./typescript/*"
       ]
     },
-    "esModuleInterop": true,
-    "noImplicitAny": true,
     "sourceMap": true,
-    "strictNullChecks": false
+    "strictNullChecks": true
   }
 }
