@@ -9,8 +9,6 @@ COPY . .
 # Building app
 RUN npm install
 
-ENV PORT=4500
-
 # Building app
 RUN npm run build
 

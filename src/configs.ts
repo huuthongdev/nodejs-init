@@ -4,7 +4,7 @@ import { ObjectUtils } from './utils';
 export const ENV = process.env['ENV'] || 'local';
 export const PORT = process.env['PORT'] || 5000;
 
-export const EnvVariables = dotenv.config({ path: './bin/local.env' });
+export const EnvVariables = dotenv.config({ path: `./bin/${ENV}.env` });
 
 if (EnvVariables.error) {
     console.error(EnvVariables.error)
