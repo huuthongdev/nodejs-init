@@ -1,7 +1,7 @@
 import { Request, NextFunction } from 'express';
 import { ServerError, ObjectUtils, ErrorMessage } from '../refs';
 
-export default function onError(_: Request, res: any, next: NextFunction) {
+export function onError(_: Request, res: any, next: NextFunction) {
     res.onError = (error: ServerError) => {
         if (!error.status) console.log(error);
         let body: any = {

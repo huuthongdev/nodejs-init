@@ -1,9 +1,9 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { json } from 'body-parser';
-import { onError, ErrorMessage } from './refs';
+import { ErrorMessage, onError } from './refs';
 
-const app = express();
+export const app = express();
 
 app.use(cors());
 app.use(json());
@@ -16,5 +16,3 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     console.error(error.stack)
     res.status(500).send({ success: false, message: ErrorMessage.INTERNAL_SERVER_ERROR });
 });
-
-export default app

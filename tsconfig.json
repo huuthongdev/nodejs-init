@@ -6,14 +6,16 @@
       "es2017",
       "dom"
     ],
-    "outDir": "./dist",
-    "strictNullChecks": false,
+    "outDir": "dist",
     "baseUrl": "./",
     "paths": {
       "*": [
         "./typescript/*"
       ]
     },
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "strictNullChecks": false
   }
 }
