@@ -1,3 +1,3 @@
-export function connectDatabase() {
-    
+export async function connectDatabase() {
+    console.info(`••••• Connect database success.`);
 }
