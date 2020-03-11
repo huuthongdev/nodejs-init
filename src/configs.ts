@@ -1,7 +1,7 @@
 import dotenv from 'dotenv'
 import { ObjectUtils } from './utils';
 
-export const ENV = process.env['ENV'] || 'local';
+export const ENV: 'local' | 'test' | 'production' | 'development' = process.env['ENV'] || 'local' as any;
 export const PORT = process.env['PORT'] || 5000;
 
 export const EnvVariables = dotenv.config({ path: `./bin/${ENV}.env` });
@@ -12,13 +12,6 @@ if (EnvVariables.error) {
 }
 
 export const getEnv = (key:
-    // Database
-    'DATABASE_HOST' |
-    'DATABASE_PORT' |
-    'DATABASE_USER_NAME' |
-    'DATABASE_USER_PASSWORD' |
-    'DATABASE_NAME' |
-    'DATABASE_MAX_QUERY_LIMIT' |
     // Super Admin Account
     'ADMIN_USERNAME' |
     'ADMIN_EMAIL' |

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "ENV=testing DATABASE_NAME=database-test nodemon --exec mocha dist/test --recursive",
+    "test": "ENV=test nodemon --exec mocha dist/**/**/*.test.js -e js --recursive",
     "start": "node dist/index.js",
     "dev": "ENV=local nodemon dist/index.js",
     "build": "rm -rf dist && tsc",
@@ -20,8 +20,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
-    "pg": "^7.18.2",
-    "typeorm": "^0.2.24"
+    "typescript": "3.4.5"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
@@ -33,7 +32,6 @@
     "@types/supertest": "^2.0.8",
     "assert": "^2.0.0",
     "mocha": "^6.2.2",
-    "supertest": "^4.0.2",
-    "typescript": "3.4.5"
+    "supertest": "^4.0.2"
   }
 }
