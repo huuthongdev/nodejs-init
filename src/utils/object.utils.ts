@@ -66,4 +66,11 @@ export class ObjectUtils {
     static isHasValue(obj: object) {
         return !this.isEmptyObj(obj);
     }
+
+    static selects(obj: any, keys: string[]) {
+        return keys.reduce((acc: any, key) => {
+            acc[key] = obj[key];
+            return acc;
+        }, {})
+    }
 }
