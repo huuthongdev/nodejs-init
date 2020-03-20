@@ -1,5 +1,5 @@
 import { Request, NextFunction } from 'express';
-import { ServerError, ObjectUtils, ErrorMessage } from '../refs';
+import { ServerError, ObjectUtils, ErrorMessage } from '../utils';
 
 export function onError(_: Request, res: any, next: NextFunction) {
     res.onError = (error: ServerError) => {

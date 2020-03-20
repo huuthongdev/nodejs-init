@@ -1,7 +1,8 @@
 import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import { json } from 'body-parser';
-import { ErrorMessage, onError } from './refs';
+import { onError } from './middlewares';
+import { ErrorMessage } from './utils';
 
 export const app = express();
 
