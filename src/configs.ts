@@ -13,11 +13,11 @@ if (DotEnv.error) {
 
 // @ts-ignore
 export const EnvVariables = Object.keys(DotEnv.parsed).reduce((obj, key) => {
-    obj[key] = ObjectUtils.getIn(process.env, key) || ObjectUtils.getIn(DotEnv.parsed, key)
+    obj[key] = process.env[key] || ObjectUtils.getIn(DotEnv.parsed, key)
     return obj;
 }, {})
 
 export const getEnv = (key:
     // Internal Communication
     'INTERNAL_KEY'
-) => ObjectUtils.getIn(process.env, key) || ObjectUtils.getIn(EnvVariables.parsed, key);
+) => EnvVariables[key];
