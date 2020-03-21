@@ -4,20 +4,20 @@ import { ObjectUtils } from './utils';
 export const ENV: 'local' | 'test' | 'production' | 'development' = process.env['ENV'] || 'local' as any;
 export const PORT = process.env['PORT'] || 5000;
 
-export const EnvVariables = dotenv.config({ path: `./bin/${ENV}.env` });
+export const DotEnv = dotenv.config({ path: `./bin/${ENV}.env` });
 
-if (EnvVariables.error) {
-    console.error(EnvVariables.error)
+if (DotEnv.error) {
+    console.error(DotEnv.error)
     process.exit(1)
 }
 
+// @ts-ignore
+export const EnvVariables = Object.keys(DotEnv.parsed).reduce((obj, key) => {
+    obj[key] = ObjectUtils.getIn(process.env, key) || ObjectUtils.getIn(DotEnv.parsed, key)
+    return obj;
+}, {})
+
 export const getEnv = (key:
-    // Super Admin Account
-    'ADMIN_USERNAME' |
-    'ADMIN_EMAIL' |
-    'ADMIN_PLAIN_PASSWORD' |
-    // Token related
-    'TOKEN_SECRET_KEY' |
-    'TOKEN_ACCESS_EXPIRE_TIME' |
-    'TOKEN_REFRESH_EXPIRE_TIME'
-) => ObjectUtils.getIn(EnvVariables.parsed, key);
+    // Internal Communication
+    'INTERNAL_KEY'
+) => ObjectUtils.getIn(process.env, key) || ObjectUtils.getIn(EnvVariables.parsed, key);
