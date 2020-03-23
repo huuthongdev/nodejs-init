@@ -3,6 +3,7 @@ import { ObjectUtils } from './utils';
 
 export const ENV: 'local' | 'test' | 'production' | 'development' = process.env['ENV'] || 'local' as any;
 export const PORT = process.env['PORT'] || 5000;
+export const BASE_URL = process.env['BASE'] || '/api';
 
 export const DotEnv = dotenv.config({ path: `./bin/${ENV}.env` });
 

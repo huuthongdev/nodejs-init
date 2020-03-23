@@ -17,3 +17,5 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
     console.error(error.stack)
     res.status(500).send({ success: false, message: ErrorMessage.INTERNAL_SERVER_ERROR });
 });
+
+import './database/testHelper'
