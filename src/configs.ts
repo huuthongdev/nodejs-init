@@ -20,5 +20,13 @@ export const EnvVariables = Object.keys(DotEnv.parsed).reduce((obj, key) => {
 
 export const getEnv = (key:
     // Internal Communication
-    'INTERNAL_KEY'
+    'INTERNAL_KEY' |
+    'INTERNAL_URI_SERVICE_INTERNAL_STAFF' |
+    // Database
+    'DATABASE_HOST' |
+    'DATABASE_PORT' |
+    'DATABASE_USER' |
+    'DATABASE_USER_PASSWORD' |
+    'DATABASE_NAME' |
+    'DATABASE_MAX_QUERY_LIMIT'
 ) => EnvVariables[key];

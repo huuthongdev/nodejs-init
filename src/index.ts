@@ -1,6 +1,6 @@
 import { app } from './app';
 import { ENV, PORT, EnvVariables, BASE_URL } from './configs';
-// import { connectDatabase } from './database';
+import { connectDatabase } from './database';
 
 async function main() {
     // ======================= Start Log Infos =======================
@@ -21,7 +21,7 @@ async function main() {
     console.info(`\n`)
     // ======================= End Log Infos =======================
 
-    // await connectDatabase();
+    await connectDatabase();
     app.listen(PORT, () => console.log(`••••• Server start success.\n`));
 }
 

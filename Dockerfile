@@ -1,18 +1,18 @@
-FROM node:12.13.0-alpine
+FROM node:12.16.1-alpine3.9
+WORKDIR /app
 
-# Setting working directory. All the path will be relative to WORKDIR
-WORKDIR /root
+RUN apk add --update \
+    git \
+    openssh-client
 
 # Copying source files
 COPY . .
 
-# Building app
+# Install packages
 RUN npm install
 
 # Building app
 RUN npm run build
-
-EXPOSE 4500
 
 # Running the app
 CMD [ "npm", "start" ]
