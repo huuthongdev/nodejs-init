@@ -24,4 +24,3 @@ app.use((error: Error, req: Request, res: Response, next: NextFunction) => {
 });
 
 import './database/testHelper'
-
